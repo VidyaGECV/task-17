@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Result</title>
+</head>
+<style>
+    header{
+        margin: 0 13% 0 13% ;
+        background-color: #AB183D;
+        display: flex;
+        padding: 20px;
+        text-align: center;
+    }
+    nav{
+        margin: 0 13% 0 13% ;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        font-family: Arial, Helvetica, sans-serif;
+        
+    }
+    .nav{
+        background-color: black;
+        color: white;
+        width: 138px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .nav1{
+    …
+Sarkari Result
+Isko thora der mai bhejte hai
+Thik h
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Exception Handling Demo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      gap: 10px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    pre {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 20px auto;
+      white-space: pre-wrap;
+      font-family: 'Fira Code', monospace;
+    }
+    .section-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Exception Handling</h1>
+
+  <div class="menu">
+    <button onclick="showExample(1)">1. Undeclared Variable Exception</button>
+    <button onclick="showExample(2)">2. Divide by Zero Exception</button>
+    <button onclick="showExample(3)">3. Out of Bound Exception</button>
+    <button onclick="showExample(4)">4. Finally Block Example</button>
+    <button onclick="clearAll()">Clear Output</button>
+  </div>
+
+  <div class="section-title">JavaScript Code:</div>
+  <pre id="code">// JS code will be shown here</pre>
+
+  <div class="section-title">Output:</div>
+  <pre id="output">// Output will be shown here</pre>
+
+  <script>
+    const codeEl = document.getElementById("code");
+    const outputEl = document.getElementById("output");
+
+    const examples = {
+      1: {
+        code: `try {
+  console.log(notDeclared); // This will throw an error
+} catch (error) {
+  console.log("Exception caught: " + error.message);
+}`,
+        func: function () {
+          try {
+            // intentionally undefined variable
+            console.log(notDeclared);
+          } catch (error) {
+            return "Exception caught: " + error.message;
+          }
+        }
+      },
+      2: {
+        code: `try {
+  let a = 10, b = 0;
+  if (b === 0) throw new Error("Divide by zero error!");
+  console.log("Result: " + (a / b));
+} catch (error) {
+  console.log("Exception caught: " + error.message);
+}`,
+        func: function () {
+          try {
+            let a = 10, b = 0;
+            if (b === 0) throw new Error("Divide by zero error!");
+            return "Result: " + (a / b);
+          } catch (error) {
+            return "Exception caught: " + error.message;
+          }
+        }
+      },
+      3: {
+        code: `try {
+  let arr = [1, 2, 3, 4, 5];
+  let index = 10;
+  if (index < 0 || index >= arr.length)
+    throw new Error("Out of bound error!");
+  console.log("Element: " + arr[index]);
+} catch (error) {
+  console.log("Exception caught: " + error.message);
+}`,
+        func: function () {
+          try {
+            let arr = [1, 2, 3, 4, 5];
+            let index = 10;
+            if (index < 0 || index >= arr.length)
+              throw new Error("Out of bound error!");
+            return "Element: " + arr[index];
+          } catch (error) {
+            return "Exception caught: " + error.message;
+          }
+        }
+      },
+      4: {
+        code: `try {
+  console.log("Inside try block");
+  throw new Error("An error occurred!");
+} catch (error) {
+  console.log("Exception caught: " + error.message);
+} finally {
+  console.log("Finally block executed.");
+}`,
+        func: function () {
+          let result = "";
+          try {
+            result += "Inside try block\n";
+            throw new Error("An error occurred!");
+          } catch (error) {
+            result += "Exception caught: " + error.message + "\n";
+          } finally {
+            result += "Finally block executed.";
+          }
+          return result;
+        }
+      }
+    };
+
+    function showExample(num) {
+      const example = examples[num];
+      codeEl.textContent = example.code;
+      const output = example.func();
+      outputEl.textContent = output;
+    }
+
+    function clearAll() {
+      codeEl.textContent = "// JS code cleared";
+      outputEl.textContent = "// Output cleared";
+    }
+  </script>
+</body>
+</html>
